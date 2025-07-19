@@ -164,10 +164,6 @@ function library.new(library, name, theme)
 	KG.Name = "REN"
 	KG.Parent = services.CoreGui
 	
-	local UICornerMain = Instance.new("UICorner")
-	UICornerMain.Parent = KG
-    UICornerMain.CornerRadius = UDim.new(0, 3)
-	
 	Main.Name = "Main"
 	Main.Parent = KG
 	Main.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -183,6 +179,9 @@ function library.new(library, name, theme)
 			Main.Visible = not Main.Visible
 		end
 	end)
+	local UICornerMain = Instance.new("UICorner")
+	UICornerMain.Parent = Main
+    UICornerMain.CornerRadius = UDim.new(0, 3)
     
 	local Open = Instance.new("ImageButton")
 	local UICorner = Instance.new("UICorner")
@@ -278,6 +277,22 @@ function library.new(library, name, theme)
 	ScriptTitle.TextSize = 14.000
 	ScriptTitle.TextScaled = true
 	ScriptTitle.TextXAlignment = Enum.TextXAlignment.Left
+	
+	    UIGradient.Color =
+        ColorSequence.new {
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 0)),
+        ColorSequenceKeypoint.new(0.10, Color3.fromRGB(255, 127, 0)),
+        ColorSequenceKeypoint.new(0.20, Color3.fromRGB(255, 255, 0)),
+        ColorSequenceKeypoint.new(0.30, Color3.fromRGB(0, 255, 0)),
+        ColorSequenceKeypoint.new(0.40, Color3.fromRGB(0, 255, 255)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 0, 255)),
+        ColorSequenceKeypoint.new(0.60, Color3.fromRGB(139, 0, 255)),
+        ColorSequenceKeypoint.new(0.70, Color3.fromRGB(255, 0, 0)),
+        ColorSequenceKeypoint.new(0.80, Color3.fromRGB(255, 127, 0)),
+        ColorSequenceKeypoint.new(0.90, Color3.fromRGB(255, 255, 0)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 255, 0))
+    }
+    UIGradient.Parent = ScriptTitle
 
     local TweenService = game:GetService("TweenService")
     local tweeninfo = TweenInfo.new(7, Enum.EasinKGtyle.Linear, Enum.EasingDirection.In, -1)
