@@ -163,18 +163,7 @@ function library.new(library, name, theme)
 	end
 	GS.Name = "REN"
 	GS.Parent = services.CoreGui
-	function UiDestroy()
-		GS:Destroy()
-	end
-	function ToggleUILib()
-		if not ToggleUI then
-			GS.Enabled = false
-			ToggleUI = true
-		else
-			ToggleUI = false
-			GS.Enabled = true
-		end
-	end
+	
 	Main.Name = "Main"
 	Main.Parent = GS
 	Main.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -193,23 +182,7 @@ function library.new(library, name, theme)
 	local UICornerMain = Instance.new("UICorner")
 	UICornerMain.Parent = Main
     UICornerMain.CornerRadius = UDim.new(0, 3)
-
-    Welcome.Name = "WelcomeMain"
-    Welcome.Parent = Main
-    Welcome.AnchorPoint = Vector2.new(0.5, 0.5)
-    Welcome.Position = UDim2.new(0.5, 0, 0.5, 0)
-    Welcome.Size = UDim2.new(1, 0, 1, 0)
-    Welcome.Text = "欢迎使用KG脚本"
-    Welcome.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Welcome.TextSize = 32
-    Welcome.BackgroundTransparency = 1
-    Welcome.TextTransparency = 1
-    Welcome.TextStrokeTransparency = 0.5
-    Welcome.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
-    Welcome.Font = Enum.Font.GothamBold
-    Welcome.Visible = true
     
-
 	local Open = Instance.new("ImageButton")
 	local UICorner = Instance.new("UICorner")
 
