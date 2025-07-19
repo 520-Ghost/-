@@ -4,7 +4,7 @@ until game:IsLoaded()
 local library = {}
 local ToggleUI = false
 library.currentTab = nil
-library.flags = {}
+library.flaKG = {}
 local services = setmetatable({}, {
 	__index = function(t, k)
 		return game.GetService(game, k)
@@ -13,7 +13,7 @@ local services = setmetatable({}, {
 local mouse = services.Players.LocalPlayer:GetMouse()
 function Tween(obj, t, data)
 	services.TweenService
-		:Create(obj, TweenInfo.new(t[1], Enum.EasingStyle[t[2]], Enum.EasingDirection[t[3]]), data)
+		:Create(obj, TweenInfo.new(t[1], Enum.EasinKGtyle[t[2]], Enum.EasingDirection[t[3]]), data)
 		:Play()
 	return true
 end
@@ -28,7 +28,7 @@ function Ripple(obj)
 		Ripple.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Ripple.BackgroundTransparency = 1.000
 		Ripple.ZIndex = 8
-		Ripple.Image = "https://raw.githubusercontent.com/520-Ghost/-/main/GHOST.PNG"
+		Ripple.Image = "http://www.roblox.com/asset/?id=98986762470278"
 		Ripple.ImageTransparency = 0.800
 		Ripple.ScaleType = Enum.ScaleType.Fit
 		Ripple.ImageColor3 = Color3.fromRGB(255, 255, 255)
@@ -83,17 +83,17 @@ function drag(frame, hold)
 	end
 	local dragging
 	local dragInput
-	local dragStart
+	local draKGtart
 	local startPos
 	local function update(input)
-		local delta = input.Position - dragStart
+		local delta = input.Position - draKGtart
 		frame.Position =
 			UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 	end
 	hold.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1 then
 			dragging = true
-			dragStart = input.Position
+			draKGtart = input.Position
 			startPos = frame.Position
 			input.Changed:Connect(function()
 				if input.UserInputState == Enum.UserInputState.End then
@@ -140,7 +140,7 @@ function library.new(library, name, theme)
 		Toggle_On = Color3.fromRGB(37, 254, 152),
 	}
 	
-	local GS = Instance.new("ScreenGui")
+	local KG = Instance.new("ScreenGui")
 	local Main = Instance.new("Frame")
 	local TabMain = Instance.new("Frame")
 	local MainC = Instance.new("UICorner")
@@ -159,13 +159,17 @@ function library.new(library, name, theme)
 	local UIGradientTitle = Instance.new("UIGradient")
 	
 	if syn and syn.protect_gui then
-		syn.protect_gui(GS)
+		syn.protect_gui(KG)
 	end
-	GS.Name = "REN"
-	GS.Parent = services.CoreGui
+	KG.Name = "REN"
+	KG.Parent = services.CoreGui
+	
+	local UICornerMain = Instance.new("UICorner")
+	UICornerMain.Parent = KG
+    UICornerMain.CornerRadius = UDim.new(0, 3)
 	
 	Main.Name = "Main"
-	Main.Parent = GS
+	Main.Parent = KG
 	Main.AnchorPoint = Vector2.new(0.5, 0.5)
 	Main.BackgroundColor3 = config.Bg_Color
 	Main.BorderColor3 = config.MainColor
@@ -179,22 +183,19 @@ function library.new(library, name, theme)
 			Main.Visible = not Main.Visible
 		end
 	end)
-	local UICornerMain = Instance.new("UICorner")
-	UICornerMain.Parent = Main
-    UICornerMain.CornerRadius = UDim.new(0, 3)
     
 	local Open = Instance.new("ImageButton")
 	local UICorner = Instance.new("UICorner")
 
 	Open.Name = "Open"
-	Open.Parent = GS
+	Open.Parent = KG
 	Open.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Open.BackgroundTransparency = 1
 	Open.Position = UDim2.new(0.00829315186, 0, 0.13107837, 0)
 	Open.Size = UDim2.new(0, 50, 0, 50)
 	Open.Active = true
 	Open.Draggable = true
-	Open.Image = "https://raw.githubusercontent.com/520-Ghost/-/main/GHOST.PNG"
+	Open.Image = "http://www.roblox.com/asset/?id=98986762470278"
 	Open.MouseButton1Click:Connect(function()
 		Main.Visible = not Main.Visible
 	end)
@@ -277,25 +278,9 @@ function library.new(library, name, theme)
 	ScriptTitle.TextSize = 14.000
 	ScriptTitle.TextScaled = true
 	ScriptTitle.TextXAlignment = Enum.TextXAlignment.Left
-	
-	    UIGradient.Color =
-        ColorSequence.new {
-        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 0)),
-        ColorSequenceKeypoint.new(0.10, Color3.fromRGB(255, 127, 0)),
-        ColorSequenceKeypoint.new(0.20, Color3.fromRGB(255, 255, 0)),
-        ColorSequenceKeypoint.new(0.30, Color3.fromRGB(0, 255, 0)),
-        ColorSequenceKeypoint.new(0.40, Color3.fromRGB(0, 255, 255)),
-        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 0, 255)),
-        ColorSequenceKeypoint.new(0.60, Color3.fromRGB(139, 0, 255)),
-        ColorSequenceKeypoint.new(0.70, Color3.fromRGB(255, 0, 0)),
-        ColorSequenceKeypoint.new(0.80, Color3.fromRGB(255, 127, 0)),
-        ColorSequenceKeypoint.new(0.90, Color3.fromRGB(255, 255, 0)),
-        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 255, 0))
-    }
-    UIGradient.Parent = ScriptTitle
 
     local TweenService = game:GetService("TweenService")
-    local tweeninfo = TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.In, -1)
+    local tweeninfo = TweenInfo.new(7, Enum.EasinKGtyle.Linear, Enum.EasingDirection.In, -1)
     local tween = TweenService:Create(UIGradient, tweeninfo, {Rotation = 360})
     tween:Play()
 
@@ -328,7 +313,7 @@ function library.new(library, name, theme)
 		TabIco.BackgroundTransparency = 1.000
 		TabIco.BorderSizePixel = 0
 		TabIco.Size = UDim2.new(0, 24, 0, 24)
-		TabIco.Image = ("rbxassetid://%s"):format((icon or 4370341699))
+		TabIco.Image = ("rbxassetid://%s"):format((icon or 98986762470278))
 		TabIco.ImageTransparency = 0.2
 		TabText.Name = "TabText"
 		TabText.Parent = TabIco
@@ -510,7 +495,7 @@ function library.new(library, name, theme)
 				local enabled = enabled or false
 				assert(text, "No text provided")
 				assert(flag, "No flag provided")
-				library.flags[flag] = enabled
+				library.flaKG[flag] = enabled
 
 				local ToggleModule = Instance.new("Frame")
 				local ToggleBtn = Instance.new("TextButton")
@@ -559,9 +544,9 @@ function library.new(library, name, theme)
 				local funcs = {
 					SetState = function(self, state)
 						if state == nil then
-							state = not library.flags[flag]
+							state = not library.flaKG[flag]
 						end
-						if library.flags[flag] == state then
+						if library.flaKG[flag] == state then
 							return
 						end
 						services.TweenService
@@ -570,7 +555,7 @@ function library.new(library, name, theme)
 								BackgroundColor3 = (state and config.Toggle_On or config.Toggle_Off),
 							})
 							:Play()
-						library.flags[flag] = state
+						library.flaKG[flag] = state
 						callback(state)
 					end,
 					Module = ToggleModule,
@@ -701,7 +686,7 @@ function library.new(library, name, theme)
 				assert(text, "No text provided")
 				assert(flag, "No flag provided")
 				assert(default, "No default text provided")
-				library.flags[flag] = default
+				library.flaKG[flag] = default
 				local TextboxModule = Instance.new("Frame")
 				local TextboxBack = Instance.new("TextButton")
 				local TextboxBackC = Instance.new("UICorner")
@@ -766,7 +751,7 @@ function library.new(library, name, theme)
 					if TextBox.Text == "" then
 						TextBox.Text = default
 					end
-					library.flags[flag] = TextBox.Text
+					library.flaKG[flag] = TextBox.Text
 					callback(TextBox.Text)
 				end)
 				TextBox:GetPropertyChangedSignal("TextBounds"):Connect(function()
@@ -780,7 +765,7 @@ function library.new(library, name, theme)
 				local max = max or 10
 				local default = default or min
 				local precise = precise or false
-				library.flags[flag] = default
+				library.flaKG[flag] = default
 				assert(text, "No text provided")
 				assert(flag, "No flag provided")
 				assert(default, "No default value provided")
@@ -896,19 +881,19 @@ function library.new(library, name, theme)
 						else
 							value = value or math.floor(min + (max - min) * percent)
 						end
-						library.flags[flag] = tonumber(value)
+						library.flaKG[flag] = tonumber(value)
 						SliderValue.Text = tostring(value)
 						SliderPart.Size = UDim2.new(percent, 0, 1, 0)
 						callback(tonumber(value))
 					end,
 				}
 				MinSlider.MouseButton1Click:Connect(function()
-					local currentValue = library.flags[flag]
+					local currentValue = library.flaKG[flag]
 					currentValue = math.clamp(currentValue - 1, min, max)
 					funcs:SetValue(currentValue)
 				end)
 				AddSlider.MouseButton1Click:Connect(function()
-					local currentValue = library.flags[flag]
+					local currentValue = library.flaKG[flag]
 					currentValue = math.clamp(currentValue + 1, min, max)
 					funcs:SetValue(currentValue)
 				end)
@@ -959,10 +944,10 @@ function library.new(library, name, theme)
 					if not boxFocused then
 						return
 					end
-					SliderValue.Text = SliderValue.Text:gsub("%D+", "")
+					SliderValue.Text = SliderValue.Text:KGub("%D+", "")
 					local text = SliderValue.Text
 					if not tonumber(text) then
-						SliderValue.Text = SliderValue.Text:gsub("%D+", "")
+						SliderValue.Text = SliderValue.Text:KGub("%D+", "")
 					elseif not allowed[text] then
 						if tonumber(text) > max then
 							text = max
@@ -978,7 +963,7 @@ function library.new(library, name, theme)
 				local options = options or {}
 				assert(text, "No text provided")
 				assert(flag, "No flag provided")
-				library.flags[flag] = nil
+				library.flaKG[flag] = nil
 				local DropdownModule = Instance.new("Frame")
 				local DropdownTop = Instance.new("TextButton")
 				local DropdownTopC = Instance.new("UICorner")
@@ -1117,7 +1102,7 @@ function library.new(library, name, theme)
 						ToggleDropVis()
 						callback(Option.Text)
 						DropdownText.Text = Option.Text
-						library.flags[flag] = Option.Text
+						library.flaKG[flag] = Option.Text
 					end)
 				end
 				funcs.RemoveOption = function(self, option)
