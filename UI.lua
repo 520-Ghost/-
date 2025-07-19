@@ -28,7 +28,7 @@ function Ripple(obj)
 		Ripple.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Ripple.BackgroundTransparency = 1.000
 		Ripple.ZIndex = 8
-		Ripple.Image = "https://raw.githubusercontent.com/Ghost-Gui-888/-/main/GHOST.PNG"
+		Ripple.Image = "https://raw.githubusercontent.com/520-Ghost/-/main/GHOST.PNG"
 		Ripple.ImageTransparency = 0.800
 		Ripple.ScaleType = Enum.ScaleType.Fit
 		Ripple.ImageColor3 = Color3.fromRGB(255, 255, 255)
@@ -221,7 +221,7 @@ function library.new(library, name, theme)
 	Open.Size = UDim2.new(0, 50, 0, 50)
 	Open.Active = true
 	Open.Draggable = true
-	Open.Image = "https://raw.githubusercontent.com/Ghost-Gui-888/-/main/GHOST.PNG"
+	Open.Image = "https://raw.githubusercontent.com/520-Ghost/-/main/GHOST.PNG"
 	Open.MouseButton1Click:Connect(function()
 		Main.Visible = not Main.Visible
 	end)
