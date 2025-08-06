@@ -5,7 +5,7 @@ b.Heartbeat
 local d=game:GetService"UserInputService"
 local e=game:GetService"TweenService"
 
-local f=loadstring(game:HttpGetAsync"https://raw.githubusercontent.com/KingScriptAE/No-sirve-nada./refs/heads/main/mian%20f%20Yuan.lua")()
+local f=loadstring(game:HttpGetAsync"https://raw.github.com/520-Ghost/-/main/mian%20f%20Yuan.lua")()
 f.SetIconsType"lucide"
 
 local g={
